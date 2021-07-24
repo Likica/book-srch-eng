@@ -17,6 +17,8 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "apollo-boost": "^0.4.9",
+    "apollo-server-express": "^3.0.2",
     "bcrypt": "^5.0.1",
     "express": "^4.17.1",
     "gh-pages": "^3.2.3",
