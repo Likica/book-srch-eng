@@ -1,0 +1,19 @@
+{
+  "name": "book-srch-eng",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Likica/book-srch-eng.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Likica/book-srch-eng/issues"
+  },
+  "homepage": "https://github.com/Likica/book-srch-eng#readme"
+}
