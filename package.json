@@ -4,7 +4,7 @@
   "engines": {
     "node": "14.16.1"
   },
-  "description": "",
+  "description": "<h1 align='center'>book-srch-eng</h1>",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
@@ -35,5 +35,6 @@
   },
   "bugs": {
     "url": "https://github.com/Likica/book-srch-eng/issues"
-  }
+  },
+  "homepage": "https://github.com/Likica/book-srch-eng#readme"
 }
