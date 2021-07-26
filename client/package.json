@@ -13,6 +13,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "apollo-server-express": "^3.0.2",
+    "bcrypt": "^5.0.1",
     "bootstrap": "^4.4.1",
     "gh-pages": "^3.2.3",
     "graphql": "^15.5.1",
