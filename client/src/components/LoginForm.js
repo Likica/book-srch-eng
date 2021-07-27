@@ -1,5 +1,5 @@
 // see SignupForm.js for comments
-import { useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/react-hooks';
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
@@ -29,7 +29,9 @@ const LoginForm = () => {
     }
 
     try {
-      const response = await loginUser(userFormData);
+      const response = await loginUser({
+        variables: { ...userFormData },
+      });
 
       if (!response.ok) {
         throw new Error('something went wrong!');
