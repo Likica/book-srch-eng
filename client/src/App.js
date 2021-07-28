@@ -14,8 +14,11 @@ const client = new ApolloClient({
 
     operation.setContext({
       headers: {
-        authorization: token ? `Bearer ${token}` : ''
+        authorization: token ? `Bearer ${token}` : '',
+        link: httpLink,
+        cache: new InMemoryCache(),
       }
+
     });
   },
   uri: '/graphql'
@@ -24,10 +27,10 @@ const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
 });
 
-const client = new ApolloClient({
-  link: httpLink,
-  cache: new InMemoryCache(),
-});
+// const client = new ApolloClient({
+//   link: httpLink,
+//   cache: new InMemoryCache(),
+// });
 function App() {
   return (
     <ApolloProvider client={client}>
