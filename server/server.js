@@ -14,7 +14,11 @@ const db = require("./config/connection");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/book-srch-eng', {
+  useFindAndModify: false,
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 // create a new Apollo server and pass in our schema data
 const server = new ApolloServer({
   typeDefs,
