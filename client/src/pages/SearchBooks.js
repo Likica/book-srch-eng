@@ -7,7 +7,7 @@ import { useMutation } from "@apollo/client";
 
 import Auth from "../utils/auth";
 import { searchGoogleBooks } from "../utils/API";
-import { ADD_BOOK } from "../utils/mutations";
+import { SAVE_BOOK } from "../utils/mutations";
 import { saveBookIds, getSavedBookIds } from "../utils/localStorage";
 
 const SearchBooks = () => {
@@ -17,7 +17,7 @@ const SearchBooks = () => {
   const [searchInput, setSearchInput] = useState("");
 
   // set the mutation hook for adding bookstore
-  const [addBook, { error }] = useMutation(ADD_BOOK);
+  const [addBook, { error }] = useMutation(SAVE_BOOK);
 
   // create state to hold saved bookId values
   const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
