@@ -11,15 +11,15 @@ const db = require("./config/connection");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+
+// add Apollo server to Express app as middleware
+server.applyMiddleware({ app });
 // create Apollo server, pass in schema data
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
 });
-
-// add Apollo server to Express app as middleware
-server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
