@@ -40,33 +40,41 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        async saveBook({ user, body }, res) {  // if async does not work - try 'saveBook: async (params)
-            console.log(user);
-            try {
-                const updatedUser = await User.findOneAndUpdate(
-                    { _id: user._id },
-                    { $addToSet: { savedBooks: body } }, // use $push if this doesn't work
-                    { new: true, runValidators: true } //can delete runValidators
+        addBooks: async (args, parent, context) => {  // if async does not work - try 'addBooks: async (params)
+            if (context.user) {
+                let user = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    {
+                        $addToSet: {
+                            savedBooks: args,
+                        },
+                    },
+                    { new: true }
                 );
-                return res.json(updatedUser);
-            } catch (err) {
-                console.log(err);
-                return res.status(400).json(err);
+                let book = user.savedBooks[user.savedBooks.length - 1];
+                console.log(book);
+
+                return book;
             }
+            throw new AuthenticationError("You need to be logged in!");
         },
-        // remove a book from `savedBooks`
-        async deleteBook({ user, params }, res) {   // if async does not work - try 'saveBook: async (params)
-            const updatedUser = await User.findOneAndUpdate(
-                { _id: user._id },
-                { $pull: { savedBooks: { bookId: params.bookId } } }, // if problems $pull: {savedBooks: bookId}
-                { new: true }
-            );
-            if (!updatedUser) {
-                return res.status(404).json({ message: "Couldn't find user with this id!" });
+
+        deleteBook: async (parent, args, context) => {
+            if (context.user) {
+                let user = await User.findOne({ _id: context.user._id });
+                let savedBooks = user.savedBooks;
+                let book = savedBooks.find((book) => book.bookId === args.bookId);
+                console.log(book);
+                const updatedUser = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { savedBooks: { bookId: args.bookId } } },
+                    { new: true }
+                );
+                return book;
             }
-            return res.json(updatedUser);
+            throw new AuthenticationError("You need to be logged in!");
         },
-    }
+    },
 };
 
 module.exports = resolvers;
