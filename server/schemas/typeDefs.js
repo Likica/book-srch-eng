@@ -33,7 +33,7 @@ const typeDefs = gql`
       link: String
       title: String): 
       Book
-    removeBook(bookId: String!): Book
+    deleteBook(bookId: String!): Book
   }
 `;
 module.exports = typeDefs;
