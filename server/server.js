@@ -12,7 +12,6 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 // create Apollo server, pass in schema data
-await server.start()
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -20,7 +19,6 @@ const server = new ApolloServer({
 });
 
 // add Apollo server to Express app as middleware
-await server.start()
 server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: false }));
