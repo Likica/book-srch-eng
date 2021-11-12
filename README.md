@@ -1,6 +1,6 @@
 <h1 align='center'>book-srch-eng</h1>
 
-### By likica * [Email me](mailto:fahrija_wyroski@live.com) * 
+### By likica * [Email me](mailto:codefin9@hotmail.com)) * 
   * [URL to The App](https://book-srch-eng.herokuapp.com/) 
 <br></br>
 
@@ -48,7 +48,7 @@ Take a fully functioning Google Books API search engine built with a RESTful API
 
   ## Questions
   ##### [Back to Table of Contents](#Table-of-Contents)
-  * If you have any questions, please contact me at fahrija_wyroski@live.com
+  * If you have any questions, please contact me at codefin9@hotmail.com)
 
   ## License 
   ##### [Back to Table of Contents](#Table-of-Contents)
